@@ -1,0 +1,38 @@
+import App from "./App.js";
+import SocialScreen from "./screens/SocialScreen.js";
+
+export default class Router{
+
+    constructor(){
+        
+        window.onload = this.navigate;
+        window.onpopstate = this.navigate;
+        window.onclick = this.handleDataLinks;
+
+    }
+
+    handleDataLinks = (e) =>{
+        const link = e.target.closest("[data-link]");
+        if(link){
+            e.preventDefault();
+            console.log(link.href);
+            history.pushState("", "", link.href);
+            this.navigate(e);
+        }
+    }
+
+    navigate = (e) => {
+        const app = new App();
+
+        let page = "";
+        if(location.pathname == "/" || location.pathname == "/social"){
+            document.title = "Hooperz-Social";
+            page = new SocialScreen();
+        }
+        else {
+            page = `<h1>404 not found</h1>`;
+        }
+
+        app.render(page);
+    }
+}
