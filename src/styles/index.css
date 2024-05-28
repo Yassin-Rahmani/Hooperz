@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --color-dark: hsl(252, 30%, 17%);
+    --color-light: hsl(252, 30%, 95%);
+    --color-white: hsl(252, 30%, 100%);
+    --color-grey: hsl(252, 15%, 65%);
+    --color-black: hsl(252, 30%, 10%);
+    --color-primary: hsl(220, 65%, 33%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-danger:  	hsl(350, 85%, 42%);
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-dark);
+    background: var(--color-light);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto; /*centrer le contenu*/
+}
+
+.profile-picture {
+    aspect-ratio: 1/1; /*rend l'image carré*/
+    height: 125px;
+    width: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: inset 0 0 0 1px var(--color-grey);
+}
+
+.text-bold {
+    font-weight: 500;
+}
+
+.text-muted {
+    color: var(--color-grey);
+}
+
+/*===================================================HEADER===========================================================*/
+nav {
+    width: 100%;
+    height: 185px;
+    background: var(--color-primary);
+    padding: 0.7rem 0;
+    position: fixed;
+    top: 0;
+    border-bottom: 2px solid var(--color-grey);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.search-button , .menu-button {
+    display: none;
+    height: 60px;
+    width: 60px;
+    background: var(--color-light);
+    border: 2px solid var(--color-grey);
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+#icon-search , #icon-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-button img, .menu-button img {
+    height: 45px;
+    width: 45px;
+}
+
+#logo {
+    height: 150px;
+    width: auto;
+}
+
+nav .navbar {
+    transform: translateX(-160px);
+    position: relative;
+    z-index: 20;
+}
+
+nav .navbar ul{
+    list-style: none;
+}
+
+nav .navbar li {
+    display: inline-block;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0.5rem 0.5rem;
+}
+
+nav .navbar a:link {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+nav .navbar a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+nav .navbar a:active {
+    text-decoration: none;
+    color: white;
+}
+
+nav .navbar a::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 5px;
+    background-color: white;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+nav .navbar a:hover::before, nav .navbar a.active::before{
+    width: 100%;
+    visibility: visible;
+
+}
+
+
+nav .search-bar {
+    transform: translateY(-40px);
+    background: var(--color-light);
+    padding: var(--search-padding);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 900px;
+    position: relative;
+}
+
+.header-bottom {
+    position: relative;
+    z-index: 10;
+}
+
+nav .search-bar input[type="search"] {
+    background: transparent;
+    width: 800px;
+    height: 35px;
+    margin-left: 3rem;
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    border: none;
+    position: relative;
+}
+
+nav .icon {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+#down-arrow-icon {
+    position: absolute;
+    transform: translate(90px , -35px);
+}
+
+
+nav .search-bar input[type="search"]::placeholder {
+    color: var(--color-grey);
+    font-size:1.5rem;
+}
+
+nav .profile {
+    position: relative;
+    overflow: visible;
+}
+nav .profile .active {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
+    background: var(--color-success);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.header-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.more-list {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    transform: translate(-15px , -7px);
+    border-radius: 15px;
+    background: var(--color-primary);
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0px 3px 2px var(--color-light);
+    z-index: 30;
+}
+
+.more:hover .more-list{
+    display: block;
+}
+
+/*==========================================MEDIA QUERIES - HEADER==================================================*/
+
+@media (max-width: 1775px) {
+
+    nav {
+        height: 140px;
+    }
+
+    #logo {
+        height: 100px;
+    }
+
+    .profile-picture {
+        height: 90px;
+        border: 2px solid white;
+    }
+
+    nav .profile .active {
+        width: 25px;
+        height: 25px;
+        border: 2px solid var(--color-white);
+    }
+
+    nav .navbar a::before{
+        height: 3px;
+    }
+
+    nav .navbar li {
+        display: inline-block;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 0.2rem 0.2rem;
+    }
+
+    nav .navbar {
+        transform: translateX(-50px);
+    }
+
+    #down-arrow-icon {
+        position: absolute;
+        transform: translate(70px , -33px);
+    }
+
+    nav .search-bar {
+        transform: translate(75px , -25px);
+        height: 40px;
+        width: 550px;
+        position: relative;
+    }
+    
+    nav .search-bar input[type="search"] {
+        width: 480px;
+        margin-left: 2rem;
+    }
+
+    nav .search-bar input[type="search"]::placeholder {
+        font-size:1.25rem;
+    }
+    
+    nav .icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .search-button , .menu-button {
+        display:block;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .header-bottom {
+        display: none;
+    }
+
+    nav {
+        height: 105px;
+    }
+
+    #logo {
+        height: 80px;
+    }
+
+    .profile-picture {
+        height: 75px;
+    }
+}
+
+/*================================================FIN DE HEADER===============================================*/
